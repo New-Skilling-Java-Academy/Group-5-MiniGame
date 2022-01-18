@@ -24,10 +24,19 @@ public class QuizApp {
         System.out.println();
         System.out.println("All Question info:");
         for (Question quest:question) {
-            System.out.println(quest.question + " - " + quest.answerright);
+            System.out.println("------------Question " + (question.indexOf(quest)+1) + "---------");
+            System.out.println(question.indexOf(quest)+1 + quest.question);
+            System.out.println(quest.answerA);
+            System.out.println(quest.answerB);
+            System.out.println(quest.answerC);
+            System.out.println(quest.answerD);
+            System.out.println(quest.answerright);
+            System.out.println("------------End----------");
+
         }
-        System.out.println("------------End----------");
+
         System.out.println();
+
 
     }
 
