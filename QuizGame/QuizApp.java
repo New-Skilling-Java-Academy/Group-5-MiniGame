@@ -49,10 +49,20 @@ public class QuizApp {
 //        questionnumber();
 
         if (timer == 11) {
-            printwin(timer);
+            printwin();
         } else {
-            Question quest = question.get(questionnumber());
-            System.out.println("------------Question " + (question.indexOf(quest) + 1) + "---------");
+            int qNumber = questionnumber();
+            while (gamequestion.contains(qNumber)) {
+                qNumber = questionnumber();
+            }
+
+            Question quest = question.get(qNumber);
+            gamequestion.add(qNumber);
+            for (int i = 0; i < gamequestion.size(); i++) {
+                System.out.print(gamequestion.get(i)+"-");
+            }
+
+            System.out.println("\n------------Question " + (question.indexOf(quest) + 1) + "---------");
             System.out.println((question.indexOf(quest) + 1) + " " + quest.question);
             System.out.printf(" \t 1: %s - 2: %s - 3: %s - 4: %s \n", quest.answerA, quest.answerB, quest.answerC, quest.answerD);
 
@@ -109,14 +119,10 @@ public class QuizApp {
 
     }
 
-    public int questionnumber() {
-        int newquestion = ThreadLocalRandom.current().nextInt(0, question.size() - 1);
-        if (gamequestion.contains(newquestion)) {
-            questionnumber();
-        }
-        gamequestion.add(newquestion);
-        return newquestion;
-
+    int questionnumber() {
+//        int newquestion = ThreadLocalRandom.current().nextInt(0, question.size() - 1);
+//        return newquestion;
+        return ThreadLocalRandom.current().nextInt(0, question.size() - 1);
     }
 
     public void printend(int timer) {
@@ -127,9 +133,9 @@ public class QuizApp {
         System.exit(0);
     }
 
-    public void printwin(int timer) {
+    public void printwin() {
         System.out.println();
-        System.out.println("You win " + timer);
+        System.out.println("You win ");
         System.out.println("------------End----------");
         System.out.println();
         System.exit(0);
