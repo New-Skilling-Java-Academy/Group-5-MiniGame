@@ -15,35 +15,25 @@ public class Quiz {
             "By definition, a 10-speed bike has 10 what?",
             "What was the name of the band led by Jim Morrison?",
             "What is not a car VW name?",
-            "What Supervillian is near Helder?",
+
             "Is Java ...?"
     };
 
     String[][] options = 	{
 
-            {"One-pack","Six-pack","12-pack ","family-pack "},
-            {"The End","The Conclusion","The Finish","the TimeOut"},
-            {"Metal","Plastic","Wood","The wrong people"},
-            {"Hamlet","Romeo","Macbeth","Helder"},
-            {"Ireland","The United States","Scotland","Ireland"},
-            {"Your holiness","Your honor","Your eminence","You da man!"},
+
+
             {"Food","Money","Clothing","Reality TV "},
             {"Hump","Rump ","Stump ","Leftovers"},
             {"Wheels","Gears","Spokes","Lives"},
             {"The Doors","The Windows","The Floors","The Roofs"},
             {"Golf","Jetta","Passat","Bulldog"},
-            {"The Penguin","The Riddler","Two Face","The Joker"},
+
             {"Great","Nice","Awesome","a Programming language"}
     };
 
     char[] answers = 		{
 
-            'B',
-            'A',
-            'A',
-            'D',
-            'C',
-            'B',
             'B',
             'C',
             'B',
