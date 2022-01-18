@@ -120,8 +120,6 @@ public class QuizApp {
     }
 
     int questionnumber() {
-//        int newquestion = ThreadLocalRandom.current().nextInt(0, question.size() - 1);
-//        return newquestion;
         return ThreadLocalRandom.current().nextInt(0, question.size() - 1);
     }
 
