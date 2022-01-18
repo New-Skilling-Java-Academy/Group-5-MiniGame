@@ -1,3 +1,5 @@
+package QuizGame;
+
 public class Quiz {
 
     String[] questions = 	{
