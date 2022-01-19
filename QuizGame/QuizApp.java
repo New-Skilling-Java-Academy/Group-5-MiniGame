@@ -58,21 +58,21 @@ public class QuizApp {
 
             Question quest = question.get(qNumber);
             gamequestion.add(qNumber);
-            for (int i = 0; i < gamequestion.size(); i++) {
-                System.out.print(gamequestion.get(i)+"-");
-            }
+//            for (int i = 0; i < gamequestion.size(); i++) {
+//                System.out.print(gamequestion.get(i)+"-");
+//            }
 
-            System.out.println("\n------------Question " + (question.indexOf(quest) + 1) + "---------");
-            System.out.println((question.indexOf(quest) + 1) + " " + quest.question);
-            System.out.printf(" \t 1: %s - 2: %s - 3: %s - 4: %s \n", quest.answerA, quest.answerB, quest.answerC, quest.answerD);
+            System.out.println("\n------------Question " + (timer) + "--------------------------------------------------------");
+            System.out.println(" " + quest.question);
+            System.out.printf(" \n 1: %s \n 2: %s \n 3: %s \n 4: %s \n", quest.answerA, quest.answerB, quest.answerC, quest.answerD);
 
-            System.out.println(quest.answerright);
+//            System.out.println(quest.answerright);
             System.out.println("--------------------------------------------------------------------------------");
-            System.out.println("Timer = " + timer);
+//            System.out.println("Timer = " + timer);
 
             while (timer <= 10) {
-                System.out.println("Timer is: " + timer);
-                System.out.print("Answer ");
+//                System.out.println("Timer is: " + timer);
+                System.out.print("\nYour Answer :  ");
                 int choice = input.nextInt();
 
                 input.nextLine();
@@ -80,33 +80,37 @@ public class QuizApp {
                     case 1:
                         if (quest.answerA.equals(quest.answerright)) {
                             timer++;
+                            System.out.println(quest.answerright + " is right");
                             showQuestion();
                         } else {
-                            printend(timer);
+                            printend(timer, quest.answerA);
                             break;
                         }
                     case 2:
                         if (quest.answerB.equals(quest.answerright)) {
                             timer++;
+                            System.out.println(quest.answerright + " is right");
                             showQuestion();
                         } else {
-                            printend(timer);
+                            printend(timer,quest.answerB);
                             break;
                         }
                     case 3:
                         if (quest.answerC.equals(quest.answerright)) {
+                            System.out.println(quest.answerright + " is right");
                             timer++;
                             showQuestion();
                         } else {
-                            printend(timer);
+                            printend(timer,quest.answerC);
                             break;
                         }
                     case 4:
                         if (quest.answerD.equals(quest.answerright)) {
+                            System.out.println(quest.answerright + " is right");
                             timer++;
                             showQuestion();
                         } else {
-                            printend(timer);
+                            printend(timer, quest.answerC);
                             break;
                         }
                     default:
@@ -123,8 +127,9 @@ public class QuizApp {
         return ThreadLocalRandom.current().nextInt(0, question.size() - 1);
     }
 
-    public void printend(int timer) {
+    public void printend(int timer, String answer) {
         System.out.println();
+        System.out.println(answer + " is not right");
         System.out.println("You lose in round " + timer);
         System.out.println("------------End----------");
         System.out.println();
@@ -133,7 +138,7 @@ public class QuizApp {
 
     public void printwin() {
         System.out.println();
-        System.out.println("You win ");
+        System.out.println("You win the 1 Million Smiles");
         System.out.println("------------End----------");
         System.out.println();
         System.exit(0);
