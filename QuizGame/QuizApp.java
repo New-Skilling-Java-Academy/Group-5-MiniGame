@@ -26,7 +26,8 @@ public class QuizApp {
         Question question10 = new Question("By definition, a 10-speed bike has 10 what?", "Wheels", "Gears", "Spokes", "Lives", "Gears");
         Question question11 = new Question("What is not black or white", "Milk", "coal", "tires", "rainbow", "rainbow");
         Question question12 = new Question("What is not Java", "Great", "Awesome", "Loud", "a Programming language", "Loud");
-
+        Question question13 = new Question("Where lives Pedro",  "Pedroso", "Porto",  "Prados", "Ponte",  "Porto");
+        Question question14 = new Question("Which Person is not in the AW Acadamy Team ?",  "Helder", "Pedro",  "Sophie", "Jesus",  "Jesus");
 
         question.add(question1);
         question.add(question2);
@@ -40,13 +41,13 @@ public class QuizApp {
         question.add(question10);
         question.add(question11);
         question.add(question12);
+        question.add(question13);
+        question.add(question14);
 
     }
 
     public void showQuestion() {
         System.out.println();
-//        System.out.println("Quiz");
-//        questionnumber();
 
         if (timer == 11) {
             printwin();
@@ -63,9 +64,8 @@ public class QuizApp {
 //            }
 
             System.out.println("\n------------Question " + (timer) + "--------------------------------------------------------");
-            System.out.println(" " + quest.question);
-            System.out.printf(" \n 1: %s \n 2: %s \n 3: %s \n 4: %s \n", quest.answerA, quest.answerB, quest.answerC, quest.answerD);
-
+            System.out.println("\t" + quest.question);
+            System.out.printf(" \n\t 1: %s \n\t 2: %s \n\t 3: %s \n\t 4: %s \n", quest.answerA, quest.answerB, quest.answerC, quest.answerD);
 //            System.out.println(quest.answerright);
             System.out.println("--------------------------------------------------------------------------------");
 //            System.out.println("Timer = " + timer);
@@ -83,7 +83,7 @@ public class QuizApp {
                             System.out.println(quest.answerright + " is right");
                             showQuestion();
                         } else {
-                            printend(timer, quest.answerA);
+                            printend(timer, quest.answerA, quest.answerright);
                             break;
                         }
                     case 2:
@@ -92,7 +92,7 @@ public class QuizApp {
                             System.out.println(quest.answerright + " is right");
                             showQuestion();
                         } else {
-                            printend(timer,quest.answerB);
+                            printend(timer,quest.answerB, quest.answerright);
                             break;
                         }
                     case 3:
@@ -101,7 +101,7 @@ public class QuizApp {
                             timer++;
                             showQuestion();
                         } else {
-                            printend(timer,quest.answerC);
+                            printend(timer,quest.answerC, quest.answerright);
                             break;
                         }
                     case 4:
@@ -110,7 +110,7 @@ public class QuizApp {
                             timer++;
                             showQuestion();
                         } else {
-                            printend(timer, quest.answerC);
+                            printend(timer, quest.answerC, quest.answerright);
                             break;
                         }
                     default:
@@ -127,9 +127,9 @@ public class QuizApp {
         return ThreadLocalRandom.current().nextInt(0, question.size() - 1);
     }
 
-    public void printend(int timer, String answer) {
+    public void printend(int timer, String answer, String answerright) {
         System.out.println();
-        System.out.println(answer + " is not right");
+        System.out.println(answer + " is not right - " + answerright + " was correct.");
         System.out.println("You lose in round " + timer);
         System.out.println("------------End----------");
         System.out.println();
